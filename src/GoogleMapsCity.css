@@ -1,0 +1,11 @@
+.maps {
+    width: 350px;
+    height: 350px;
+}
+
+.GoogleMapsCity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}

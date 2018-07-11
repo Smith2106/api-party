@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 import './GoogleMaps.css';
+import GoogleMapsCity from './GoogleMapsCity';
 
 class GoogleMaps extends Component {
     state = {
@@ -42,6 +43,10 @@ class GoogleMaps extends Component {
                         </button>
                     </div>
                 </form>
+                <Route 
+                    path="/googlemaps/:city"
+                    component={GoogleMapsCity} 
+                />
             </div>
         );
     }
