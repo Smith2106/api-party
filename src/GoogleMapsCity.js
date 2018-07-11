@@ -24,17 +24,23 @@ class GoogleMapsCity extends Component {
         const { city } = this.props.match.params;
         const geocoder = new google.maps.Geocoder();
         let map;
+        let marker;
 
         geocoder.geocode( { 'address': city }, (results, status) => {
             if (status == 'OK') {
-                console.log(results);
                 const latlng = results[0].geometry.location;
-                console.log(this.refs.map);
+                const address = results[0].formatted_address;
+
                 map = new google.maps.Map(this.refs.map, {
                     zoom: 12,
                     center: latlng,
                 });
-                console.log(map);
+                
+                marker = new google.maps.Marker({
+                    position: latlng,
+                    map: map,
+                    title: address,
+                });
             }
             else {
                 alert('Geocode was not successful for the following reason: ' + status);
